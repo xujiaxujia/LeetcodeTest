@@ -1,0 +1,21 @@
+执行用时 :32 ms, 在所有Python3提交中击败了99.97%的用户
+内存消耗 :13.1 MB, 在所有Python3提交中击败了96.53%
+
+
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        left_point, right_pointer = 0, 0
+        duplicate = 0
+        ans = 0
+        if not needle:
+            return ans
+        if len(haystack)<len(needle):
+            return -1
+        else:
+            while left_point<len(haystack)-len(needle)+1:
+                if haystack[left_point:left_point+len(needle)] == needle:
+                    break
+                else:
+                    left_point += 1
+            left_point = -1 if left_point == len(haystack)-len(needle)+1 else left_point
+            return left_point
